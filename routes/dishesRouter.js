@@ -6,10 +6,6 @@ router.get("/", (req, res) => {
     res.render("index", { title: "Ambot" });
 })
 
-router.get("/dish", (req, res) => {
-    res.render("index", { title: "Ambot" });
-})
-
 router.get("/dishlist", dishesController.readDishes);
 
 router.get("/addDish", (req, res) => {
