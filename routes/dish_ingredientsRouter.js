@@ -4,7 +4,7 @@ const dishIngredientsController = require("../controllers/dishIngredientsControl
 
 router.get("/dishProfile/:id", (req, res) => {
     // res.render("index", { title: "Ambot" });
-    res.redirect("/dish?id=" + req.params.id)
+    res.redirect("/dishProfile?id=" + req.params.id)
 })
 
 router.get("/dishProfile", dishIngredientsController.readDI);
