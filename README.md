@@ -1,7 +1,6 @@
-<h1>Appdev Project</h1>
+<h1>Putahe de Amore</h1>
 <br>
-npm install<br>
-nodemon app<br><br>
+<br>
 Collaborators:<br>
 Rayl Regañon<br>
 Arnan Planco<br>
