@@ -4,11 +4,15 @@ const dish_ingredients = require("../models/dish_ingredients");
 
 
 exports.readIngredients = async(req, res) => {
+    let dataD = null;
     let data = await ingredients.model.findAll();
-    res.render("generator", { ingredients: data, title: "Dish Generator" });
+    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD  });
 }
 
 exports.getIngredients = async(req, res) => {
+    
+    let data = await ingredients.model.findAll();
+
     var x, y, z, m = 0,
         n = 0,
         a, b;
@@ -66,6 +70,6 @@ exports.getIngredients = async(req, res) => {
 
     // res.send(dataI);
 
-    res.render("dishlist", { title: "Dishes", dishes: dataD });
+    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD  });
 
 }
