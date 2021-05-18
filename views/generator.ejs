@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <div>
+        <header class="relative bg-indigo-400 w-full" x-data="{ isOpen: false }">
+            <%- include('partials/header'); %>
+        </header>
+
+        <section class="relative h-screen w-full flex items-center justify-center">
+            <img src="storage/home.png" class="z-0 absolute h-full w-full">
+
+            <div class="z-10 container absolute h-4/5 w-1/2 bg-white bg-opacity-50 overflow-auto inline-block">
+
+                <form action="/generateDish" method="POST">
+                    <%var y=0;%>
+                        <% for(x=0;x<ingredients.length;x++){%>
+                            <div class="ml-2 inline-block h-10 w-52 pt-2">
+                                <div class="pretty p-default p-thick p-round p-pulse p-bigger text-lg">
+                                    <input type="checkbox" id="ingredient1" name="ingredient" value="<%-ingredients[x].ingredientID%>">
+                                    <div class="state p-danger p-danger-o">
+                                        <label class="font-mono"><%=ingredients[x].ingredientName%></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <%}%>
+                                <input type="hidden" name="count" id="cnt" value="0">
+
+            </div>
+            <br><br><br>
+            <button onclick="checkboxes()" type="submit" class="bottom-0 px-8 py-2 text-lg font-medium text-white transition-colors duration-300 transform border rounded hover:bg-black" style="margin-top:39rem">
+                    Generate
+                </button>
+            <script>
+                function checkboxes() {
+                    var inputElems = document.getElementsByTagName("input"),
+                        count = 0;
+                    for (var i = 0; i < inputElems.length; i++) {
+                        if (inputElems[i].type === "checkbox" && inputElems[i].checked === true) {
+                            count++;
+
+                        }
+                    }
+
+                    document.getElementById("cnt").value = count;
+                    var cts = document.getElementById("cnt").value;
+                    alert(cts);
+                }
+            </script>
+            </form>
+        </section>
+
+
+        <section class="bg-white" id="result" style="display:none">
+            <div class="max-w-5xl px-6 py-16 mx-auto">
+                <div class="items-center md:flex md:space-x-6">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold text-black">Lorem ipsum dolor sit <br> amet, consectetur</h3>
+                        <p class="max-w-md mt-4 text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <a href="#" class="block mt-8 text-black underline">Experienced team</a>
+                    </div>
+
+                    <div class="mt-8 md:mt-0 md:w-1/2">
+                        <div class="flex items-center justify-center">
+                            <div class="max-w-md">
+                                <img class="object-cover object-center w-full rounded-md shadow" style="height: 500px;" src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Bicol_Express.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+        </script>
+    </div>
+    </
