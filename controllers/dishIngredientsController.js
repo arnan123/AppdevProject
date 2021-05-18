@@ -6,7 +6,7 @@ const ingredients = require("../models/ingredients")
 
 exports.readDI = async(req, res) => {
 
-    var x, y, z = 0;
+    var x;
     let dataI = []
     let data = await dishes.model.findOne({
         where: {
