@@ -6,11 +6,37 @@ const dish_ingredients = require("../models/dish_ingredients");
 exports.readIngredients = async(req, res) => {
     let dataD = null;
     let data = await ingredients.model.findAll();
-    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD  });
+    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD });
 }
 
 exports.getIngredients = async(req, res) => {
-    
+
+    // var x;
+    // let dataDI = []
+
+    // if (req.body.count == 1) {
+    //     dataDI[0] = await ingredients.model.findOne({
+    //         where: {
+    //             ingredientID: req.body.ingredient
+    //         },
+    //         raw: true
+    //     })
+    // } else {
+    //     for (x = 0; x < req.body.count; x++) {
+    //         dataDI[x] = await ingredients.model.findOne({
+    //             where: {
+    //                 ingredientID: req.body.ingredient[x]
+    //             },
+    //             raw: true
+    //         })
+
+    //     }
+    // }
+
+
+    // res.send(dataDI);
+
+
     let data = await ingredients.model.findAll();
 
     var x, y, z, m = 0,
@@ -20,22 +46,48 @@ exports.getIngredients = async(req, res) => {
     let dataDI = []
     let dataD = []
     let dataI = []
-        // for (x = 0; x < req.body.count; x++) {
-        //     dataDI.push(await dish_ingredients.model.findAll({
-        //         where: {
-        //             ingredientID: req.body.ingredient[x]
-        //         },
-        //         raw: true
-        //     }))
-        // }
 
-    for (x = 0; x < req.body.count; x++) {
-        dataDI[x] = await dish_ingredients.model.findOne({
-            where: {
-                ingredientID: req.body.ingredient[x]
-            },
-            raw: true
-        })
+    if (req.body.count > 1) {
+        for (x = 0; x < req.body.count; x++) {
+            dataDI.push(await dish_ingredients.model.findAll({
+                where: {
+                    ingredientID: req.body.ingredient[x]
+                },
+                raw: true
+            }))
+        }
+
+        for (x = 0; x < req.body.count; x++) {
+            dataDI[x] = await dish_ingredients.model.findOne({
+                where: {
+                    ingredientID: req.body.ingredient[x]
+                },
+                raw: true
+            })
+        }
+
+
+    } else {
+        for (x = 0; x < req.body.count; x++) {
+            dataDI.push(await dish_ingredients.model.findAll({
+                where: {
+                    ingredientID: req.body.ingredient
+                },
+                raw: true
+            }))
+        }
+
+        for (x = 0; x < req.body.count; x++) {
+            dataDI[x] = await dish_ingredients.model.findOne({
+                where: {
+                    ingredientID: req.body.ingredient
+                },
+                raw: true
+            })
+        }
+
+
+
     }
 
     for (y = 0; y < dataDI.length; y++) {
@@ -60,8 +112,6 @@ exports.getIngredients = async(req, res) => {
             }
         })
         n++;
-
-
     }
 
     // let data = await dish_ingredients.model.findAll()
@@ -70,6 +120,6 @@ exports.getIngredients = async(req, res) => {
 
     // res.send(dataI);
 
-    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD  });
+    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD });
 
 }

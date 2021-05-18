@@ -25,7 +25,7 @@
                                 <div class="pretty p-default p-thick p-round p-pulse p-bigger text-lg">
                                     <input type="checkbox" id="ingredient1" name="ingredient" value="<%-ingredients[x].ingredientID%>">
                                     <div class="state p-danger p-danger-o">
-                                        <label class="font-mono"><%=ingredients[x].ingredientName%></label>
+                                        <label class="font-mono"><%=ingredients[x].ingredientName%> <%=ingredients[x].ingredientID%></label>
                                     </div>
                                 </div>
                             </div>
@@ -33,11 +33,11 @@
                                 <input type="hidden" name="count" id="cnt" value="0">
 
             </div>
-                    <br><br><br>
-                    <button onclick="checkboxes()" type="submit" class="bottom-0 px-8 py-2 text-lg font-medium text-white transition-colors duration-300 transform border rounded hover:bg-black" style="margin-top:39rem">
+            <br><br><br>
+            <button onclick="checkboxes()" type="submit" class="bottom-0 px-8 py-2 text-lg font-medium text-white transition-colors duration-300 transform border rounded hover:bg-black" style="margin-top:39rem">
                             Generate
                     </button>
-                </form>
+            </form>
         </section>
 
 
@@ -45,40 +45,38 @@
 
             <section class="bg-white" id="result">
                 <div class="max-w-5xl px-6 py-16 mx-auto">
-            
-                            <% for(x=0;x<dishes.length;x++){%>
-                                <div class="inline-block w-80 rounded overflow-hidden shadow-lg" style="height:30rem">
-                                    <img class="w-full" src="<%=dishes[x].dishPic%>">
-                                    <div class="px-6 py-4">
-                                        <div class="font-bold text-xl mb-2"><a href="/dishProfile/<%=dishes[x].dishID%>"><button><%=dishes[x].dishName%></button></a></div>
-                                        <p class="text-gray-700 text-base overflow-auto h-44 w-full">
-                                            <%=dishes[x].dishDescription%>
-                                        </p>
-                                    </div>
-                                </div>
-                                <% } %>
+
+                    <% for(x=0;x<dishes.length;x++){%>
+                        <div class="inline-block w-80 rounded overflow-hidden shadow-lg" style="height:30rem">
+                            <img class="w-full" src="<%=dishes[x].dishPic%>">
+                            <div class="px-6 py-4">
+                                <div class="font-bold text-xl mb-2"><a href="/dishProfile/<%=dishes[x].dishID%>"><button><%=dishes[x].dishName%></button></a></div>
+                                <p class="text-gray-700 text-base overflow-auto h-44 w-full">
+                                    <%=dishes[x].dishDescription%>
+                                </p>
+                            </div>
+                        </div>
+                        <% } %>
                 </div>
             </section>
 
-        <%}%>
+            <%}%>
 
-<script>
+                <script>
+                    function checkboxes() {
 
-function checkboxes() {
+                        var inputElems = document.getElementsByTagName("input"),
+                            count = 0;
 
-    var inputElems = document.getElementsByTagName("input"),
-    count = 0;
+                        for (var i = 0; i < inputElems.length; i++) {
+                            if (inputElems[i].type === "checkbox" && inputElems[i].checked === true) {
+                                count++;
+                            }
+                        }
 
-    for (var i = 0; i < inputElems.length; i++) {
-        if (inputElems[i].type === "checkbox" && inputElems[i].checked === true) {
-            count++;
-        }
-    }
-
-    document.getElementById("cnt").value = count;
-    var cts = document.getElementById("cnt").value;
-}
-
-</script>
+                        document.getElementById("cnt").value = count;
+                        var cts = document.getElementById("cnt").value;
+                    }
+                </script>
     </div>
-    </body>
+</body>
