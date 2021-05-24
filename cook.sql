@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2021 at 10:52 AM
+-- Generation Time: May 18, 2021 at 02:11 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -43,9 +43,19 @@ CREATE TABLE `dishes` (
 --
 
 INSERT INTO `dishes` (`dishID`, `dishName`, `dishDescription`, `dishMenu`, `dishPic`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
-(1, 'Chicken Adobo', 'In a large kettle combine the chicken, the vinegar, the garlic, the bay leaves, the peppercorns, and 1 cup water, bring the mixture to a boil, and simmer it, covered, for 20 minutes. Add the soy sauce and simmer the mixture, covered, for 20 minutes. Trans', 'Dinner', 'storage/Dishes/ChickenAdobo.jpg', NULL, NULL, NULL),
-(2, 'Bicol Express', 'Bicol Express is pure comfort food! With pork cubes cooked in coconut milk and chili peppers, it’s rich, creamy, spicy and delicious! Serve with steamed rice for a hearty and big flavored meal!', 'Lunch', 'storage/Dishes/BicolExpress.jpg', NULL, NULL, NULL),
-(4, 'Sinigang', 'Sinigang na Hipon is a type of Filipino sour soup, wherein shrimp is used as the main ingredient. This dish also includes a variety of vegetables such as daikon radish, snake beans, okra, and eggplant. This dish is best served during cold weather. It is b', 'Lunch', 'storage/Dishes/Sinigang.jpg', '2021-05-14 06:42:56', '2021-05-14 06:42:56', NULL);
+(1, 'Chicken Adobo', 'In a large kettle combine the chicken, the vinegar, the garlic, the bay leaves, the peppercorns, and 1 cup water, bring the mixture to a boil, and simmer it, covered, for 20 minutes. Add the soy sauce and simmer the mixture, covered, for 20 minutes. Trans', 'Dinner', 'storage/Dishes/ChickenAdobo.jpg', '2021-05-18 20:10:25', '2021-05-18 20:10:25', NULL),
+(2, 'Bicol Express', 'Bicol Express is pure comfort food! With pork cubes cooked in coconut milk and chili peppers, it’s rich, creamy, spicy and delicious! Serve with steamed rice for a hearty and big flavored meal!', 'Lunch', 'storage/Dishes/BicolExpress.jpg', '2021-05-18 20:10:48', '2021-05-18 20:10:48', NULL),
+(3, 'Chop Suey', 'Chop Suey is a stir-fried vegetable dish that is cooked with meats such as chicken and pork. Shrimp and seafood can also be added. This chop suey recipe is special because it has almost every ingredient present. Chicken, pork, shrimp, and boiled quail eggs were all included in the recipe, along with fresh veggies.', 'Lunch', 'storage/Dishes/ChopSuey.jpg', '2021-05-18 14:00:53', '2021-05-18 14:00:53', NULL),
+(4, 'Sinigang', 'Sinigang na Hipon is a type of Filipino sour soup, wherein shrimp is used as the main ingredient. This dish also includes a variety of vegetables such as daikon radish, snake beans, okra, and eggplant. This dish is best served during cold weather. It is b', 'Lunch', 'storage/Dishes/Sinigang.jpg', '2021-05-14 06:42:56', '2021-05-14 06:42:56', NULL),
+(5, 'Banana Fritter', 'Banana Fritter is a type of Filipino snack. It is a fried concoction made from ripe  “Saba” banana or plantains. The bananas can either be sliced or mashed. It is then mixed with a batter composed of flour, sugar, vanilla, and egg. A fritter is defines as a mixture (such as a batter) that includes either fruit or meat. Maruya obviously falls under the category.', 'Breakfast', 'storage/Dishes/BananaFritter.jpg', '2021-05-18 11:00:52', '2021-05-18 11:00:52', NULL),
+(6, 'Arroz Caldo', 'Arroz Caldo literally means warm rice. This congee that closely resembles risotto has been a favorite Filipino snack. What goes with arroz caldo? I enjoy pairing it with tokwat baboy, which is a combination of boiled pork slices and fried tofu soaked in a vinegar mixture.', 'Breakfast', 'storage/Dishes/ArrozCaldo.jpg', '2021-05-18 11:05:55', '2021-05-18 11:05:55', NULL),
+(7, 'Hotsilog', 'Hotsilog is a meal composed of hotdogs, garlic fried rice, and fried egg. In a Filipino household, this is commonly eaten for breakfast with a condiment of banana ketchup and some pickled shredded papaya (atchara) on the side.', 'Breakfast', 'storage/Dishes/Hotsilog.jpg', '2021-05-18 11:09:54', '2021-05-18 11:09:54', NULL),
+(8, 'Beef Teriyaki Tapa with Fried Rice and Egg', 'Beef teriyaki tapa with fried egg is another version of tapsilog that I want to share with you. This makes use of beef steak (that was sliced thinly) and our homemade teriyaki sauce. The result is a delicious sweet tapsilog that I always enjoy to have.', 'Breakfast', 'storage/Dishes/BeefTeriyaki.jpg', '2021-05-18 11:15:02', '2021-05-18 11:15:02', NULL),
+(9, 'Corned Beef Silog', 'Corned Beef Silog is a meal composed of sautéed corned beef with onion, garlic fried rice, and fried egg. The corned beef used in this recipe are the ones in can. I used a Filipino brand, which was really good. On the other hand, I used leftover rice to make the sinangag. I also got some fresh eggs to fry.', 'Breakfast', 'storage/Dishes/CornedBeefSilog.jpg', '2021-05-18 11:13:35', '2021-05-18 11:13:35', NULL),
+(10, 'Special Longanisa Fried Rice', 'A good heavy breakfast such as special longanisa fried rice gives me enough energy to start my day. It felt like my taste buds were awakened by its yummy taste. I did not expect to be pampered so early in the morning, but that was how I felt. I can get used to this feeling every day, with a bit of variation.', 'Breakfast', 'storage/Dishes/SpecialLonganisaFriedRice.jpg', '2021-05-18 11:11:59', '2021-05-18 11:11:59', NULL),
+(11, 'Loaded Breakfast Potato', 'Your day should start with a good and filling breakfast in order to gain strength to face all the challenges ahead. Loaded Breakfast Potato is  a perfect dish that you can make to help you get ready for your day. It is packed with energy and tastes really good.', 'Breakfast', 'storage/Dishes/LoadedBreakfastPotato.jpg', '2021-05-18 11:18:06', '2021-05-18 11:18:06', NULL),
+(12, 'Crispy Pork Belly Chips', 'Who doesn’t enjoy a bag of chips every now and then? These make for a versatile snack that’s easy to eat, and are just as easy on the taste buds. But imagine if you could enhance your bowl of chips further, and add an irresistible factor of meatiness and savor. The answer to those tasty wonders lies in these Crispy Pork Belly Chips!', 'Dinner', 'storage/Dishes/CrispyPorkBellyChips.jpg', '2021-05-18 13:54:10', '2021-05-18 13:54:10', NULL),
+(13, 'Pata Tim', 'Brimming in a pork stew infused with aromatic peppercorn, sesame oil and soy sauce, Pata Tim is a classic Filipino dish with traces in Chinese cuisine. Its name actually originates from “Pata Itim”, which, when translated from Filipino to English, means “black pork hock”. The dish is said to be an evolved adaptation of the Chinese red braised pork dish. This red braised pork, also known as Hong Shao Rou, similarly utilizes pork and a savory, thick sauce. This is to give the meat and accompanying side dish', 'Dinner', 'storage/Dishes/PataTim.jpg', '2021-05-18 14:02:25', '2021-05-18 14:02:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -58,7 +68,7 @@ CREATE TABLE `dish_ingredients` (
   `dishID` bigint(20) NOT NULL,
   `ingredientID` bigint(20) NOT NULL,
   `amount` float NOT NULL,
-  `measurement` enum('teaspoon','cup','whole/piece','part','pound') NOT NULL,
+  `measurement` enum('teaspoon','cup','whole','part','pound') NOT NULL,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   `deletedAt` datetime DEFAULT NULL
@@ -69,34 +79,34 @@ CREATE TABLE `dish_ingredients` (
 --
 
 INSERT INTO `dish_ingredients` (`dishIngID`, `dishID`, `ingredientID`, `amount`, `measurement`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
-(1, 1, 1, 8, 'whole/piece', NULL, NULL, NULL),
+(1, 1, 1, 8, 'whole', NULL, NULL, NULL),
 (2, 1, 2, 2, 'teaspoon', NULL, NULL, NULL),
 (3, 1, 3, 3, 'part', NULL, NULL, NULL),
-(4, 1, 4, 2, 'whole/piece', NULL, NULL, NULL),
+(4, 1, 4, 2, 'whole', NULL, NULL, NULL),
 (5, 1, 5, 2, 'teaspoon', NULL, NULL, NULL),
 (6, 1, 6, 0.75, 'cup', NULL, NULL, NULL),
 (7, 1, 7, 9, 'teaspoon', NULL, NULL, NULL),
 (8, 2, 8, 3, 'teaspoon', NULL, NULL, NULL),
-(9, 2, 9, 1, 'whole/piece', NULL, NULL, NULL),
+(9, 2, 9, 1, 'whole', NULL, NULL, NULL),
 (10, 2, 10, 2, 'pound', NULL, NULL, NULL),
 (11, 2, 11, 6, 'teaspoon', NULL, NULL, NULL),
 (12, 2, 12, 1, 'cup', NULL, NULL, NULL),
 (13, 2, 13, 1, 'cup', NULL, NULL, NULL),
-(14, 2, 14, 14, 'whole/piece', NULL, NULL, NULL),
+(14, 2, 14, 14, 'whole', NULL, NULL, NULL),
 (15, 2, 15, 2, 'cup', NULL, NULL, NULL),
 (16, 2, 16, 1, 'cup', NULL, NULL, NULL),
 (17, 2, 17, 1, 'part', NULL, NULL, NULL),
 (18, 2, 5, 1, 'part', NULL, NULL, NULL),
 (19, 4, 19, 1, 'pound', '2021-05-14 07:14:44', NULL, NULL),
-(20, 4, 20, 1, 'whole/piece', '2021-05-14 07:14:44', NULL, NULL),
-(21, 4, 22, 15, 'whole/piece', '2021-05-14 07:16:04', NULL, NULL),
+(20, 4, 20, 1, 'whole', '2021-05-14 07:14:44', NULL, NULL),
+(21, 4, 22, 15, 'whole', '2021-05-14 07:16:04', NULL, NULL),
 (22, 4, 21, 0.25, 'pound', '2021-05-14 07:16:04', NULL, NULL),
-(23, 4, 23, 5, 'whole/piece', '2021-05-14 07:17:17', NULL, NULL),
-(24, 4, 24, 1, 'whole/piece', '2021-05-14 07:17:17', NULL, NULL),
+(23, 4, 23, 5, 'whole', '2021-05-14 07:17:17', NULL, NULL),
+(24, 4, 24, 1, 'whole', '2021-05-14 07:17:17', NULL, NULL),
 (25, 4, 25, 1, 'cup', '2021-05-14 07:17:47', NULL, NULL),
-(26, 4, 26, 1, '', '2021-05-14 07:17:47', NULL, NULL),
-(27, 4, 15, 3, '', '2021-05-14 07:18:23', NULL, NULL),
-(28, 4, 9, 1, '', '2021-05-14 07:18:23', NULL, NULL),
+(26, 4, 26, 1, 'whole', '2021-05-14 07:17:47', NULL, NULL),
+(27, 4, 15, 3, 'whole', '2021-05-14 07:18:23', NULL, NULL),
+(28, 4, 9, 1, 'whole', '2021-05-14 07:18:23', NULL, NULL),
 (29, 4, 13, 8, 'cup', '2021-05-14 07:19:23', NULL, NULL),
 (30, 4, 28, 1, 'part', '2021-05-14 07:19:23', NULL, NULL),
 (31, 4, 5, 1, 'part', '2021-05-14 07:19:53', NULL, NULL);
@@ -140,7 +150,7 @@ INSERT INTO `ingredients` (`ingredientID`, `ingredientName`, `ingredientDescript
 (16, 'Coconut Cream', 'A processed product made from a coconut fruit.', 'Spice/Seasoning', NULL, NULL, NULL),
 (17, 'Salt', 'Basic ingredient for cooking', 'Basic', NULL, NULL, NULL),
 (19, 'Shrimp', 'Shrimp and prawn are types of seafood that are consumed worldwide. Although shrimp and prawns belong to different suborders of Decapoda, they are very similar in appearance and the terms are often used interchangeably in commercial farming and wild fisher', 'Meat', '2021-05-14 06:57:01', NULL, NULL),
-(20, 'Knorr Sinigang', 'A seasoning for sampaloc flavor.', 'Spice/Seasoning', '2021-05-14 06:57:01', NULL, NULL),
+(20, 'Knorr Sinigang sa Sampaloc Mix', 'A seasoning for sour flavor.', 'Spice/Seasoning', '2021-05-14 06:57:01', NULL, NULL),
 (21, 'Kangkong', 'Kangkong or water spinach is one of the very familiar green leafy vegetables used in the South and South-East Asian cuisine. Its gently sweet, mucilaginous, succulent leaves and stems are very much sought-after in the salads, braised and stir-fries.', 'Vegetable/Fruit', '2021-05-14 07:01:42', NULL, NULL),
 (22, 'Asparagus beans', 'The asparagus bean is a legume cultivated for its edible green pods containing immature seeds, like the green bean. It is also known as the yardlong bean, long-podded cowpea, Chinese long bean, bodi/bora, snake bean, or pea bean.', 'Vegetable/Fruit', '2021-05-14 07:02:23', NULL, NULL),
 (23, 'Okra', 'Okra or Okro, Abelmoschus esculentus, known in many English-speaking countries as ladies\' fingers or ochro, is a flowering plant in the mallow family. It is valued for its edible green seed pods. It is a good source of minerals, vitamins, antioxidants, and fiber.', 'Vegetable/Fruit', '2021-05-14 07:02:23', NULL, NULL),
@@ -233,7 +243,7 @@ ALTER TABLE `washdish`
 -- AUTO_INCREMENT for table `dishes`
 --
 ALTER TABLE `dishes`
-  MODIFY `dishID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `dishID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `dish_ingredients`
