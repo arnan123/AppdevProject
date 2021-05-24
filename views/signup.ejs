@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+
+<head>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <div>
+        <header class="relative bg-indigo-400 w-full" x-data="{ isOpen: false }">
+            <%- include('partials/header'); %>
+        </header>
+
+        <section class="w-full relative flex items-center justify-center h-screen">
+            <img src="storage/dishlist.png" class="z-0 absolute h-full">
+
+            <div class="z-10 text-center">
+                <form method="POST" action="/signup">
+                    <h2 class="mt-6 text-3xl font-bold text-white md:text-5xl">Signup</h2>
+                    <div class="flex justify-center mt-8">
+                        <label style="color: white;">
+                        Username:<br>
+                    </label>
+                        <div class="flex justify-center mt-8"></div>
+                        <br><input placeholder="Username" type="text" maxlength="11" name="name" required>
+                    </div>
+                    <div class="flex justify-center mt-8">
+                        <label style="color: white;">
+                        Email:<br>
+                    </label>
+                        <div class="flex justify-center mt-8"></div>
+                        <br><input placeholder="Email" type="email" name="email" required>
+                    </div>
+
+                    <div class="flex justify-center mt-8">
+                        <label style="color: white;">
+                        Password:<br>
+                    </label>
+                        <div class="flex justify-center mt-8">
+                        </div>
+                        <br><input placeholder="Password" type="password" name="password" required>
+                    </div>
+                    <div class="flex justify-center mt-8">
+                        <button type="submit" class="btn primary">Submit</button>
+                    </div>
+                </form>
+                <%if(error==0){%>
+                    <%}else if(error==1){%>
+                        <div class="flex justify-center mt-8">
+                            <p style="color: red;">Email Already is Used</p>
+                        </div>
+                        <%}%>
+
+            </div>
+        </section>
+
+        <section class="bg-white">
+            <div class="ml-40 max-w-6xl px-6 py-16 mx-auto">
+
+
+
+            </div>
+        </section>
+
+
+        <footer class="border-t">
+            <%- include('partials/footer'); %>
+        </footer>
+    </div>
+    <script type="text/javascript">
+        function toggleModal(modalID) {
+            document.getElementById(modalID).classList.toggle("hidden");
+            document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
+            document.getElementById(modalID).classList.toggle("flex");
+            document.getElementById(modalID + "-backdrop").classList.toggle("flex");
+        }
+    </script>
+</body>
+
+</html>

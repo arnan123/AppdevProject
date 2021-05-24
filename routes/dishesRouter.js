@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 router.get("/dishlist", dishesController.readDishes);
 
 router.get("/addDish", (req, res) => {
-    res.render("addDish", { title: "Ambot" });
+    res.render("addDish", { title: "Ambot", user: null });
 })
 
 module.exports = router;
