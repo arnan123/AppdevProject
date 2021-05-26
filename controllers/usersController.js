@@ -64,6 +64,20 @@ exports.createAccount = async(req, res) => {
 
 }
 
+exports.editProfile = async(req,res)=>{
+    let data = await user.model.findByPk(req.body.id);
+
+    data.userName=req.body.username;
+    data.userFullName=req.body.fullname;
+    data.userEmail=req.body.email;
+    data.userBio=req.body.biography;
+    data.userPassword=req.body.password;
+
+    await data.save();
+    req.session.account = data;
+    res.redirect("/profile");
+}
+
 generateCode = () => {
     let generate = "";
     const char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

@@ -21,4 +21,5 @@ router.get("/logout", (req, res) => {
 
 router.post("/signup", usersController.createAccount);
 router.post("/login", usersController.login);
+router.post("/profile", usersController.editProfile);
 module.exports = router;
