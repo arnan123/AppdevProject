@@ -6,35 +6,11 @@ const dish_ingredients = require("../models/dish_ingredients");
 exports.readIngredients = async(req, res) => {
     let dataD = null;
     let data = await ingredients.model.findAll();
-    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD, account:req.session.account });
+    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD, account: req.session.account });
 }
 
 exports.getIngredients = async(req, res) => {
 
-    // var x;
-    // let dataDI = []
-
-    // if (req.body.count == 1) {
-    //     dataDI[0] = await ingredients.model.findOne({
-    //         where: {
-    //             ingredientID: req.body.ingredient
-    //         },
-    //         raw: true
-    //     })
-    // } else {
-    //     for (x = 0; x < req.body.count; x++) {
-    //         dataDI[x] = await ingredients.model.findOne({
-    //             where: {
-    //                 ingredientID: req.body.ingredient[x]
-    //             },
-    //             raw: true
-    //         })
-
-    //     }
-    // }
-
-
-    // res.send(dataDI);
 
 
     let data = await ingredients.model.findAll();
@@ -120,6 +96,6 @@ exports.getIngredients = async(req, res) => {
 
     // res.send(dataI);
 
-    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD, account:req.session.account });
+    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD, account: req.session.account });
 
 }

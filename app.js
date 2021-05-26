@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const fileUpload = require('express-fileupload');
 const dishesRoutes = require("./routes/dishesRouter");
 const ingredientsRoutes = require("./routes/ingredientsRouter");
 const dishIngredientsRoutes = require("./routes/dish_IngredientsRouter");
@@ -16,9 +17,20 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-
+app.use(fileUpload());
 app.use('/styles', express.static(__dirname + '/public/styles'));
 app.use('/storage', express.static(__dirname + '/public/storage'));
+
+// let sampleFile;
+// let uploadPath;
+// sampleFile = req.files.avatar;
+// uploadPath = __dirname + '/public/storage/Dishes/' + sampleFile.name;
+
+// sampleFile.mv(uploadPath, function(err) {
+//     if (err) return res.status(500).send(err);
+
+//     console.log(sampleFile);
+// })
 
 app.use("/", dishesRoutes);
 app.use("/", ingredientsRoutes);

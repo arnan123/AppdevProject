@@ -26,6 +26,7 @@ exports.login = async(req, res) => {
     if (account != null) {
         if (bcrypt.compareSync(req.body.password, account.userPassword) && account.userPassword != "") {
             req.session.account = account;
+            req.session.account.created = account.createdAt.getYear()
             res.render("index", { error: 0, title: "Putahe de Amore", account: req.session.account });
         } else {
             res.render("login", { error: 2, title: "Signup" });
@@ -83,6 +84,7 @@ exports.checkProfile = async(req, res) => {
         });
     }
 
+
     var dishI = new Array(alldish.length);
     var ingrdt = new Array(alldish.length);
     var i = new Array();
@@ -115,18 +117,68 @@ exports.checkProfile = async(req, res) => {
 
 }
 
+exports.checkAdminProfile = async(req, res) => {
+
+
+    let alldish = await dishes.model.findAll()
+
+    var dishI = new Array(alldish.length);
+    var ingrdt = new Array(alldish.length);
+    var i = new Array();
+
+    var x, y;
+
+    for (x = 0; x < alldish.length; x++) {
+        dishI[x] = await dish_ingredients.model.findAll({
+            where: {
+                dishID: alldish[x].dishID
+            }
+        });
+
+        for (y = 0; y < dishI[x].length; y++) {
+            i[y] = dishI[x][y].ingredientID;
+        }
+
+        for (y = 0; y < dishI[x].length; y++) {
+            ingrdt[x] = await ingredients.model.findAll({
+                where: {
+                    ingredientID: {
+                        [Op.in]: i
+                    }
+                }
+            });
+        }
+    }
+
+    res.render("adminProfile", { dishes: alldish, title: "Profile", dishingredient: dishI, ingredient: ingrdt, account: req.session.account })
+
+}
+
 exports.editProfile = async(req, res) => {
     let data = await user.model.findByPk(req.body.id);
+    let sampleFile;
+    let uploadPath;
 
     data.userName = req.body.username;
     data.userFullName = req.body.fullname;
     data.userEmail = req.body.email;
     data.userBio = req.body.biography;
     data.userPassword = req.body.password;
+    data.userImage = req.files.image.name;
+
+
+    sampleFile = req.files.image;
+    uploadPath = __dirname + '/public/storage/profilePics/' + sampleFile.name;
+
+    sampleFile.mv('./public/storage/profilePics/' + req.files.image.name, function(err) {
+        if (err) return res.status(500).send(err);
+
+        console.log(sampleFile);
+    })
 
     await data.save();
     req.session.account = data;
-    res.redirect("/profile");
+    res.redirect("/adminprofile");
 }
 
 generateCode = () => {

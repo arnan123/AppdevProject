@@ -47,3 +47,26 @@ exports.readDishes = async(req, res) => {
 
     res.render("dishlist", { dishes: alldish, title: "Dish List", dishingredient: dishI, ingredient: ingrdt, account: req.session.account });
 }
+
+exports.deleteDish = async(req, res) => {
+
+    let dish = await dishes.model.destroy({
+        where: {
+            dishID: req.query.id
+        }
+    })
+
+    let dishI = await dish_ingredients.model.destroy({
+        where: {
+            dishID: req.query.id
+        }
+    })
+
+    let data = await userDish.model.destroy({
+        where: {
+            dishID: req.query.id
+        }
+    })
+
+    res.redirect("back");
+}

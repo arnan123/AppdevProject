@@ -16,7 +16,7 @@ exports.addFave = async(req, res) => {
 
     })
 
-    res.redirect("/dishProfile?id=" + req.query.id);
+    res.redirect("/profile");
 
 }
 

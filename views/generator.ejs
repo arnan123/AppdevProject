@@ -47,14 +47,18 @@
                 <div class="max-w-5xl px-6 py-16 mx-auto">
 
                     <% for(x=0;x<dishes.length;x++){%>
-                        <div class="inline-block w-80 rounded overflow-hidden shadow-lg" style="height:30rem">
+                        <div class="inline-block w-80 rounded overflow-hidden shadow-lg" style="height:35rem">
                             <img class="w-full" src="<%=dishes[x].dishPic%>">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl mb-2"><a href="/dishProfile/<%=dishes[x].dishID%>"><button><%=dishes[x].dishName%></button></a></div>
                                 <p class="text-gray-700 text-base overflow-auto h-44 w-full">
-                                    <%=dishes[x].dishDescription%>
+                                    <%=dishes[x].dishDescription%>...
                                 </p>
+                                <div class="bottom-0 container pb-8 flex justify-center">
+                                    <button type="button" class="text-white text-sm py-2.5 px-5 rounded-md bg-gray-700 hover:bg-gray-900 hover:shadow-lg" onclick="toggleModal('modal<%=dishes[x].dishID%>')">Show more...</button>
+                                </div>
                             </div>
+
                         </div>
                         <% } %>
                 </div>

@@ -11,7 +11,7 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/profile", usersController.checkProfile);
-
+router.get("/adminprofile", usersController.checkAdminProfile);
 router.get("/logout", (req, res) => {
     req.session.destroy();
     res.redirect("/");
