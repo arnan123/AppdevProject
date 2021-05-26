@@ -6,7 +6,7 @@ const dish_ingredients = require("../models/dish_ingredients");
 exports.readIngredients = async(req, res) => {
     let dataD = null;
     let data = await ingredients.model.findAll();
-    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD });
+    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD, account:req.session.account });
 }
 
 exports.getIngredients = async(req, res) => {
@@ -120,6 +120,6 @@ exports.getIngredients = async(req, res) => {
 
     // res.send(dataI);
 
-    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD });
+    res.render("generator", { ingredients: data, title: "Dish Generator", dishes: dataD, account:req.session.account });
 
 }

@@ -33,5 +33,5 @@ exports.readDishes = async(req, res) => {
         }
     }
 
-    res.render("dishlist", { dishes: alldish, title: "Dish List", dishingredient: dishI, ingredient: ingrdt });
+    res.render("dishlist", { dishes: alldish, title: "Dish List", dishingredient: dishI, ingredient: ingrdt, account:req.session.account });
 }

@@ -20,7 +20,8 @@ exports.login = async(req, res) => {
     })
     if (account != null) {
         if (bcrypt.compareSync(req.body.password, account.userPassword) && account.userPassword != "") {
-            res.render("index", { error: 0, title: "Signup" });
+            req.session.account = account;
+            res.render("index", { error: 0, title: "Putahe de Amore", account: req.session.account });
         } else {
             res.render("login", { error: 2, title: "Signup" });
         }
@@ -47,20 +48,18 @@ exports.createAccount = async(req, res) => {
     } else {
         let data = await user.model.create({
             userName: req.body.name,
+            userFullName: req.body.fullname,
             userEmail: req.body.email,
             userPassword: hash,
             userType: 0,
             userUID: req.body.code,
             updatedAt: null
-
         })
 
-        req.session.user = data
-        res.locals.user = req.session.user
-        res.render("index", { error: 0, title: "Signup" });
+        res.redirect("/login");
 
     }
-    res.render("index", { error: 0, title: "Signup" });
+    res.redirect("/login");
 
 
 }

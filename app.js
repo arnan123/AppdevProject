@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const session = require ("express-session");
 const dishesRoutes = require("./routes/dishesRouter");
 const ingredientsRoutes = require("./routes/ingredientsRouter");
 const dishIngredientsRoutes = require("./routes/dish_IngredientsRouter");
@@ -9,6 +10,11 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+  secret:'secret-key',
+  resave:false,
+  saveUninitialized:false
+}));
 
 app.use('/styles', express.static(__dirname + '/public/styles'));
 app.use('/storage', express.static(__dirname + '/public/storage'));

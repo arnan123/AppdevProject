@@ -8,6 +8,10 @@ const users = instance.sequelize.define("users", {
         primaryKey: true,
         allowNull: false
     },
+    userFullName: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     userName: {
         type: DataTypes.STRING,
         allowNull: false
@@ -27,9 +31,8 @@ const users = instance.sequelize.define("users", {
     userType: {
         type: DataTypes.BIGINT,
         allowNull: false
-    },
-    userType: {
-        type: DataTypes.BIGINT,
+    },userBio: {
+        type: DataTypes.STRING,
         allowNull: false
     }
 }, {

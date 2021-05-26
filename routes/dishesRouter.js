@@ -3,7 +3,7 @@ const router = express.Router();
 const dishesController = require("../controllers/dishesController");
 
 router.get("/", (req, res) => {
-    res.render("index", { title: "Putahe de Amore" });
+    res.render("index", { title: "Putahe de Amore", account:req.session.account });
 })
 
 router.get("/dishlist", dishesController.readDishes);
