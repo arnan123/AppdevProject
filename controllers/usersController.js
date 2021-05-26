@@ -1,4 +1,9 @@
 const user = require("../models/users")
+const dish_ingredients = require("../models/dish_ingredients")
+const dishes = require("../models/dishes")
+const ingredients = require("../models/ingredients")
+const userDish = require("../models/userDish")
+const { Op } = require("sequelize");
 const bcrypt = require("bcrypt")
 var saltRounds = 10
 
@@ -52,6 +57,7 @@ exports.createAccount = async(req, res) => {
             userEmail: req.body.email,
             userPassword: hash,
             userType: 0,
+            userBio: " ",
             userUID: req.body.code,
             updatedAt: null
         })
@@ -64,14 +70,59 @@ exports.createAccount = async(req, res) => {
 
 }
 
-exports.editProfile = async(req,res)=>{
+exports.checkProfile = async(req, res) => {
+    var z;
+    let userDishes = await userDish.model.findAll();
+
+    let alldish = []
+    for (z = 0; z < userDishes.length; z++) {
+        alldish[z] = await dishes.model.findOne({
+            where: {
+                dishID: userDishes[z].dishID
+            }
+        });
+    }
+
+    var dishI = new Array(alldish.length);
+    var ingrdt = new Array(alldish.length);
+    var i = new Array();
+
+    var x, y;
+
+    for (x = 0; x < alldish.length; x++) {
+        dishI[x] = await dish_ingredients.model.findAll({
+            where: {
+                dishID: alldish[x].dishID
+            }
+        });
+
+        for (y = 0; y < dishI[x].length; y++) {
+            i[y] = dishI[x][y].ingredientID;
+        }
+
+        for (y = 0; y < dishI[x].length; y++) {
+            ingrdt[x] = await ingredients.model.findAll({
+                where: {
+                    ingredientID: {
+                        [Op.in]: i
+                    }
+                }
+            });
+        }
+    }
+
+    res.render("profile", { dishes: alldish, title: "Profile", dishingredient: dishI, ingredient: ingrdt, account: req.session.account })
+
+}
+
+exports.editProfile = async(req, res) => {
     let data = await user.model.findByPk(req.body.id);
 
-    data.userName=req.body.username;
-    data.userFullName=req.body.fullname;
-    data.userEmail=req.body.email;
-    data.userBio=req.body.biography;
-    data.userPassword=req.body.password;
+    data.userName = req.body.username;
+    data.userFullName = req.body.fullname;
+    data.userEmail = req.body.email;
+    data.userBio = req.body.biography;
+    data.userPassword = req.body.password;
 
     await data.save();
     req.session.account = data;

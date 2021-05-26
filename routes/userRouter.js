@@ -10,9 +10,7 @@ router.get("/login", (req, res) => {
     res.render("login", { title: "Login", error: 0, account: req.session.account });
 });
 
-router.get("/profile", (req, res) => {
-    res.render("profile", { title: "Profile", account: req.session.account });
-});
+router.get("/profile", usersController.checkProfile);
 
 router.get("/logout", (req, res) => {
     req.session.destroy();

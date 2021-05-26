@@ -30,5 +30,5 @@ exports.readDI = async(req, res) => {
             }
         })
     }
-    res.render("sample", { dish: data, ingredient: dataI, DI: dataDI, title: "Dish", account:req.session.account });
+    res.render("sample", { dish: data, ingredient: dataI, DI: dataDI, title: "Dish", account: req.session.account });
 }
