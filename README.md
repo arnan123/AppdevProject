@@ -1,4 +1,4 @@
-<h1>Putahe de Amare</h1>
+<h1>Putahe de Amore</h1>
 <br>
 <br>
 Collaborators:<br>
